@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  todolist_mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - todolist_mongo:/data/db
+
+  todolist_backend:
+    build:
+      context: ./apps/backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./apps/backend:/app
+    depends_on:
+      - todolist_mongo
+    environment:
+      DB_URI: "mongodb://todolist_mongo:27017/todolist"
+
+  todolist_frontend:
+    build:
+      context: ./apps/frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/frontend:/app
+    environment:
+      SERVER_URL: "todolist_backend"
+    depends_on:
+      - todolist_backend
+
+volumes:
+  todolist_mongo:

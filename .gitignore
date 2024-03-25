@@ -1,0 +1,29 @@
+# compiled output
+dist
+/dist
+/apps/client/dist
+/apps/api/dist
+node_modules
+
+# Logs
+logs
+*.log
+pnpm-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# turbo
+.turbo

@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@nestjs/mapped-types": "*"
+  },
+  "name": "todolist-monorepo",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev --no-daemon",
+    "test:unit": "turbo run test:unit --no-daemon",
+    "build": "turbo run build"
+  },
+  "author": "Hanut S Gusain",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "dotenv-cli": "^7.4.1",
+    "turbo": "^1.9.9"
+  }
+}
