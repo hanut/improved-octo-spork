@@ -10,6 +10,9 @@
         "test:unit": {
             "cache": false
         },
+        "test:cov": {
+            "cache": false
+        },
         "build": {
             "dependsOn": [
                 "^build"

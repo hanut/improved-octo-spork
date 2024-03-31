@@ -2,8 +2,8 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { TodolistService } from './todolist.service';
 import { CreateTodolistDto } from './dto/create-todolist.dto';
 import { UpdateTodolistDto } from './dto/update-todolist.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
 import { CreateTodolistItemDto, UpdateTodolistItemDto } from './dto';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('todos')
 @UseGuards(AuthGuard)

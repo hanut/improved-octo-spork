@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test:unit": "jest",
+    "test:cov": "jest --coverage --coverageDirectory ../../coverage/frontend",
     "test": "jest"
   },
   "dependencies": {
