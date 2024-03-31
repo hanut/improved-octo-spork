@@ -66,9 +66,9 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "**/*.(t|j)s"
+      "./src/**/*.(t|j)s"
     ],
-    "coverageDirectory": "../../coverage",
+    "coverageDirectory": "../../coverage/backend",
     "coveragePathIgnorePatterns": [
       "node_modules",
       "test-config",
@@ -78,7 +78,8 @@
       ".mock.ts",
       ".spec.ts",
       "<rootDir>/src/main.ts",
-      "<rootDir>/src/app.module.ts"
+      "<rootDir>/src/app.module.ts",
+      "<rootDir>/dist"
     ],
     "testEnvironment": "node",
     "modulePaths": [

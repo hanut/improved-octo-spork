@@ -20,10 +20,14 @@ describe('TodolistController', () => {
           provide: TodolistService,
           useValue: {
             create: jest.fn(),
-            findAll: jest.fn(),
+            addItem: jest.fn(),
+            createItem: jest.fn(),
+            find: jest.fn(),
             findOne: jest.fn(),
             update: jest.fn(),
+            updateItem: jest.fn(),
             remove: jest.fn(),
+            removeItem: jest.fn(),
           } as unknown as TodolistService,
         },
         JwtService,
@@ -52,6 +56,24 @@ describe('TodolistController', () => {
       _create.mockImplementationOnce(() => Promise.resolve({ title: 'test' } as TodoListDocument));
       const createTodolistDto: CreateTodolistDto = { title: 'test' };
       const result = await controller.create(createTodolistDto);
+      expect(result).toBeDefined();
+    });
+  });
+
+  describe('findAll', () => {
+    it('should be defined', () => {
+      expect(controller.findAll).toBeDefined();
+    });
+
+    it('should return an array of todo lists', async () => {
+      const _find = jest.spyOn(mockTodoListService, 'find');
+      _find.mockImplementationOnce(() =>
+        Promise.resolve([
+          { _id: new Types.ObjectId(), title: 'test1' },
+          { _id: new Types.ObjectId(), title: 'test2' },
+        ] as TodoListDocument[]),
+      );
+      const result = await controller.findAll();
       expect(result).toBeDefined();
     });
   });
